@@ -55,7 +55,7 @@ int decrypt(KEY key, const char* input, char* output) {
 	return crypt(key,input,output,'@','_', CRYPTER_ILLEGAL_CHAR);
 }
 
-char* cryptoErrorString(int error) {
+char cryptoErrorString(int error) {
     switch (error) {
         case KEY_TOO_SHORT: return "Key too short.";
         case KEY_ILLEGAL_CHAR: return "Key contains illegal characters.";

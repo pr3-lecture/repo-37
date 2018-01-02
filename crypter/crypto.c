@@ -4,7 +4,6 @@
 #include<string.h>
 
 int keytest(KEY key){
-
     int keylength = strlen(key.chars);
     if(keylength < 1) {
         return KEY_TOO_SHORT;

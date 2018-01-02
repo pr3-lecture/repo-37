@@ -61,10 +61,7 @@ static char* test_decrypt_input_contians_illegal_char() {
 }
 
 static char* test_encrypt() {
-	char *key = "TPERULES";
-	KEY temporaryKey;
-	temporaryKey.type = 1;
-	temporaryKey.chars = key;
+	KEY temporaryKey = { 1, "TPERULES" };
 
 	char *input = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char *output = (char*)malloc(sizeof(char) * (strlen(input) + 1));
@@ -77,10 +74,7 @@ static char* test_encrypt() {
 }
 
 static char* test_decrypt() {
-	char *key = "TPERULES";
-	KEY temporaryKey;
-	temporaryKey.type = 1;
-	temporaryKey.chars = key;
+	KEY temporaryKey = { 1, "TPERULES" };
 
 	char *input = "URFVPJB[]ZN^XBJCEBVF@ZRKMJ";
 	char *output = (char*)malloc(sizeof(char) * (strlen(input) + 1));

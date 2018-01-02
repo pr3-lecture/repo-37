@@ -4,10 +4,7 @@
 #include<string.h>
 
 int keytest(KEY key){
-	if(key.type != 1) {
-        return KEY_ILLEGAL_TYPE;
-    }
-    
+
     int keylength = strlen(key.chars);
     if(keylength < 1) {
         return KEY_TOO_SHORT;
@@ -61,11 +58,10 @@ int decrypt(KEY key, const char* input, char* output) {
 
 char* cryptoErrorString(int error) {
     switch (error) {
-        case KEY_TOO_SHORT: return "Length of key not sufficient.";
+        case KEY_TOO_SHORT: return "Key too short.";
         case KEY_ILLEGAL_CHAR: return "Key contains illegal characters.";
         case MESSAGE_ILLEGAL_CHAR: return "Message contains illegal characters.";
         case CYPHER_ILLEGAL_CHAR: return "Cypher text contains illegal characters.";
-        case KEY_ILLEGAL_TYPE: return "Key type is illegal.";
         default: return "No error";
     }
 }

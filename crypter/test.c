@@ -8,7 +8,21 @@
                                 if (message) return message; } while (0)
 									
 static int tests_run = 0;
-									
+
+	static char* test_invalid_key_type_error() {
+	char *key = "TPERULES";
+    KEY temporaryKey;
+	temporaryKey.type = 0;
+    temporaryKey.chars = key;
+
+    int result = encrypt(temporaryKey, input, output);
+    mu_assert("encrypt fail -> invalid key type", result == E_KEY_ILLEGAL_TYPE);
+
+    result = decrypt(temporaryKey, input, output);
+    mu_assert("decrypt fail -> invalid key type", result == E_KEY_ILLEGAL_TYPE);
+
+    return 0;
+}								
 static char* test_key_too_short() {
 	char *key = "";
     KEY temporaryKey;

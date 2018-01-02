@@ -60,3 +60,13 @@ int decrypt(KEY key, const char* input, char* output) {
 	return crypt(key,input,output,'@','_', E_CRYPTER_ILLEGAL_CHAR);
 }
 
+char* cryptoErrorString(int error) {
+    switch (error) {
+		case E_KEY_ILLEGAL_TYPE: return "Key type is illegal.";
+        case E_KEY_TOO_SHORT: return "Key too short.";
+        case E_KEY_ILLEGAL_CHAR: return "Key contains illegal characters.";
+        case E_MESSAGE_ILLEGAL_CHAR: return "Message contains illegal characters.";
+        case E_CYPHER_ILLEGAL_CHAR: return "Cypher text contains illegal characters.";
+        default: return "No error";
+    }
+}

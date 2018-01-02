@@ -9,11 +9,11 @@ int checkIllegalChars(const char* input, const char* allowedchars) {
 		int found = 0;
 		for (int j = 0; j < strlen(allowedchars); j++) {
 			if (input[i] == allowedchars[j]) {
-				found = 1;
+				found = 1;//input on pos i is allowed
 				break;
 			}
 		}
-		if (found == 0)
+		if (found == 0)//input on pos i is not found in allowed chars
 			return 1;
 	}
 

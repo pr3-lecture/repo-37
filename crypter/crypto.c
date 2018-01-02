@@ -4,15 +4,20 @@
 #include<string.h>
 
 int keytest(KEY key){
+	
+	 if(key.type != 1) {
+        return E_KEY_ILLEGAL_TYPE;
+    }
+	
     int keylength = strlen(key.chars);
     if(keylength < 1) {
-        return KEY_TOO_SHORT;
+        return E_KEY_TOO_SHORT;
     }
 	
     for(int i = 0; i < keylength; i++) {
         char key_char = key.chars[i];
         if(key_char < '@' || key_char > '_') {
-            return KEY_ILLEGAL_CHAR;
+            return E_KEY_ILLEGAL_CHAR;
         }
     }
 	return 0;
@@ -48,10 +53,10 @@ int crypt(KEY key, const char *input, char* output, char lowlimit, char upperlim
 	  
 
 int encrypt(KEY key, const char* input, char* output) {
-   return crypt(key,input,output,'A','Z', MESSAGE_ILLEGAL_CHAR);
+   return crypt(key,input,output,'A','Z', E_MESSAGE_ILLEGAL_CHAR);
 }
 
 int decrypt(KEY key, const char* input, char* output) {
-	return crypt(key,input,output,'@','_', CRYPTER_ILLEGAL_CHAR);
+	return crypt(key,input,output,'@','_', E_CRYPTER_ILLEGAL_CHAR);
 }
 

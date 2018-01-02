@@ -12,6 +12,7 @@ static int tests_run = 0;
 static char* test_key_too_short() {
 	char *key = "";
     KEY temporaryKey;
+	temporaryKey.type = 1;
     temporaryKey.chars = key;
 
     int result = encrypt(temporaryKey, input, output);
@@ -26,6 +27,7 @@ static char* test_key_too_short() {
 static char* test_key_contains_illegal_char() {
 	char *key = "`";
     KEY temporaryKey;
+	temporaryKey.type = 1;
     temporaryKey.chars = key;
 
     int result = encrypt(temporaryKey, input, output);
@@ -40,6 +42,7 @@ static char* test_key_contains_illegal_char() {
 static char* test_encrypt_input_contians_illegal_char() {
 	char *key = "TPERULES";
     KEY temporaryKey;
+	temporaryKey.type = 1;
     temporaryKey.chars = key;
     char *input = "ABCD[";
     int result = encrypt(temporaryKey, input, output);
@@ -51,6 +54,7 @@ static char* test_encrypt_input_contians_illegal_char() {
 static char* test_decrypt_input_contians_illegal_char() {
 	char *key = "TPERULES";
     KEY temporaryKey;
+	temporaryKey.type = 1;
     temporaryKey.chars = key;
     char *input = "UZGD+";
     int result = decrypt(temporaryKey, input, output);
@@ -62,6 +66,7 @@ static char* test_decrypt_input_contians_illegal_char() {
 static char* test_encrypt() {
 	char *key = "TPERULES";
     KEY temporaryKey;
+	temporaryKey.type = 1;
     temporaryKey.chars = key;
 
 	char *input = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -77,6 +82,7 @@ static char* test_encrypt() {
 static char* test_decrypt() {
 	char *key = "TPERULES";
     KEY temporaryKey;
+	temporaryKey.type = 1;
     temporaryKey.chars = key;
 
 	char *input = "URFVPJB[]ZN^XBJCEBVF@ZRKMJ";

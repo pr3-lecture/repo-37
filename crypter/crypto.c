@@ -62,7 +62,7 @@ int decrypt(KEY key, const char* input, char* output) {
 
 char* cryptoErrorString(int error) {
     switch (error) {
-		case E_KEY_ILLEGAL_TYPE: return "Key type is illegal.";
+	    case E_KEY_ILLEGAL_TYPE: return "Key type is illegal.";
         case E_KEY_TOO_SHORT: return "Key too short.";
         case E_KEY_ILLEGAL_CHAR: return "Key contains illegal characters.";
         case E_MESSAGE_ILLEGAL_CHAR: return "Message contains illegal characters.";
